@@ -27,7 +27,7 @@ export class AppComponent {
   }
 
   connect() {
-    const socket = new SockJS('http://localhost:8080/gkz-stomp-endpoint');
+    const socket = new SockJS('http://localhost:8080/websockets');
     this.stompClient = Stomp.over(socket);
 
     const _this = this;
@@ -37,6 +37,7 @@ export class AppComponent {
 
       _this.stompClient.subscribe('/topic/hi', function (hello) {
         _this.showGreeting(JSON.parse(hello.body).greeting);
+        console.log("hello3")
       });
     });
   }
