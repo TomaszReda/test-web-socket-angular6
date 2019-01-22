@@ -10,7 +10,7 @@ import com.grokonez.spring.websocket.model.User;
 @Controller
 public class WebController {
 
-	@MessageMapping("/hello")
+	@MessageMapping("/notification")
 	@SendTo("/app/notification")
 	public Hello greeting(User user) throws Exception {
 		return new Hello("Hi, " + user.getName() + "!");

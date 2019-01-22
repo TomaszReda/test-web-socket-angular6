@@ -54,7 +54,7 @@ export class AppComponent {
 
   sendName() {
     this.stompClient.send(
-      '/gkz/hello',
+      '/notification',
       {},
       JSON.stringify({ 'name': this.name })
     );
