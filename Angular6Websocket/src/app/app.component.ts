@@ -35,9 +35,10 @@ export class AppComponent {
       _this.setConnected(true);
       console.log('Connected: ' + frame);
 
-      _this.stompClient.subscribe('/topic/hi', function (hello) {
+      _this.stompClient.subscribe('/app/notification', function (hello) {
+        console.log("hello22");
         _this.showGreeting(JSON.parse(hello.body).greeting);
-        console.log("hello3")
+        console.log("hello3");
       });
     });
   }
