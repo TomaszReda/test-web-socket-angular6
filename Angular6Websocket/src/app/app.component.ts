@@ -36,9 +36,8 @@ export class AppComponent {
       console.log('Connected: ' + frame);
 
       _this.stompClient.subscribe('/app/notification', function (hello) {
-        console.log("hello22");
+        console.log(hello);
         _this.showGreeting(JSON.parse(hello.body).greeting);
-        console.log("hello3");
       });
     });
   }
@@ -55,9 +54,7 @@ export class AppComponent {
   sendName() {
     this.stompClient.send(
       '/notification',
-      {},
-      JSON.stringify({ 'name': this.name })
-    );
+      {},);
   }
 
   showGreeting(message) {

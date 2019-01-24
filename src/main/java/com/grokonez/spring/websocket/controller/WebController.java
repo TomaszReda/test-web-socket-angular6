@@ -4,15 +4,14 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 
-import com.grokonez.spring.websocket.model.Hello;
-import com.grokonez.spring.websocket.model.User;
+import com.grokonez.spring.websocket.model.Response;
 
 @Controller
 public class WebController {
 
 	@MessageMapping("/notification")
 	@SendTo("/app/notification")
-	public Hello greeting(User user) throws Exception {
-		return new Hello("Hi, " + user.getName() + "!");
+	public Response greeting() throws Exception {
+		return new Response("New notification!");
 	}
 }
